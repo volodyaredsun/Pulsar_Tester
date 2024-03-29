@@ -1,0 +1,61 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+cycle                                                                             0x01A3       4
+string                                                                            0x01A7      11
+f                                                                                 0x01B2       2
+sens                                                                              0x01B4       1
+CountSens                                                                         0x01B5       2
+key                                                                               0x01B7       1
+CountKey                                                                          0x01B8       2
+buf_key                                                                           0x01BA       1
+f_old_key                                                                         0x01BB       1
+_base_y                                                                           0x01BC       4
+_seed                                                                             0x01C0       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+e_time_jam                                                                        0x0000       1
+e_cycle                                                                           0x0001       1
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+set_time_jam                                                                      R5           1
+jam                                                                               R4           1
+PressedKey                                                                        R7           1
+ActiveSens                                                                        R6           1
+c                                                                                 R9           1
+set_cycle                                                                         R8           1
+_lcd_x                                                                            R11          1
+_lcd_y                                                                            R10          1
+_lcd_maxx                                                                         R13          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x0008D    114
+SM                                                                                0x000FF    122
+SAS                                                                               0x00179     55
+ReadSensor                                                                        0x001B0     41
+ReadKey                                                                           0x001D9     82
+timer1_ovf_isr                                                                    0x0022B      9
+InitMCU                                                                           0x00234     40
+_lcd_write_nibble_G100                                                            0x0025C     31
+_lcd_write_data                                                                   0x0027B     12
+lcd_gotoxy                                                                        0x00287     13
+lcd_clear                                                                         0x00294     10
+lcd_putchar                                                                       0x0029E     20
+lcd_puts                                                                          0x002B2     16
+lcd_init                                                                          0x002C2     43
+put_buff_G101                                                                     0x002ED     45
+_ftoe_G101                                                                        0x0031A    142
+_print_G101                                                                       0x003A8    459
+sprintf                                                                           0x00573     42
+strcpyf                                                                           0x0059D     12
+strlen                                                                            0x005A9     11
+strlenf                                                                           0x005B4     12
+ftrunc                                                                            0x005C0     48
+floor                                                                             0x005F0     16
+ftoa                                                                              0x00600    136

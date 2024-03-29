@@ -1,0 +1,7 @@
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"pulsar_test.c" LINE:30
+sprintf DSTACK_USAGE:14 DSTACK_LEVEL:14 FILE:"D:\cvavr\lib\stdio.lib" LINE:1462
+_print DSTACK_USAGE:94 DSTACK_LEVEL:108 FILE:"D:\cvavr\lib\stdio.lib" LINE:1209
+_ftoe DSTACK_USAGE:16 DSTACK_LEVEL:124 FILE:"D:\cvavr\lib\stdio.lib" LINE:1128
+floor DSTACK_USAGE:4 DSTACK_LEVEL:128 FILE:"D:\cvavr\lib\math.lib" LINE:659
+ftrunc DSTACK_USAGE:4 DSTACK_LEVEL:132 FILE:"D:\cvavr\lib\math.lib" LINE:544
+timer1_ovf_isr DSTACK_USAGE:2 DSTACK_LEVEL:134 FILE:"pulsar_test.c" LINE:279

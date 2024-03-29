@@ -1,0 +1,53 @@
+
+    void InitMCU(void);                             // инициализация контроллера
+    void ReadKey(void);                             // опрос клавиш
+    void ReadSensor(void);                          // опрос датчиков
+    void SM(void);                                  // переключатель действий
+    void SAS(void);                                 // обработчик датчиков
+    interrupt [TIM1_OVF] void timer1_ovf_isr(void); // таймер времени сжима [0.1sec]
+//счетчики опроса кнопок
+    #define one_press       700
+    #define old_press       65000
+    #define ONE_SENS        200 
+//входные сигналы
+    #define istart       PINB.6
+    #define istop        PINB.7
+    #define iup          PIND.5
+    #define idwn         PIND.6
+    #define ibl1         PIND.0
+    #define ibl2         PIND.1
+    #define ibl3         PIND.2
+    #define ibl4         PIND.3
+//выходные сигналы
+    #define p_up        PORTC.4
+    #define p_dwn       PORTC.5
+    #define p_jam       PORTC.2
+    #define p_puls      PORTC.3
+//проверка входных сигналов
+    #define P_UP_IN     PINC.4
+    #define P_DWN_IN    PINC.5
+    unsigned char set_time_jam;     //установленное время сжижма
+    #define time_jam_max    50      //максимальное время сжима
+    #define time_jam_min    0       //минимальное время сжима
+    unsigned char jam;              //счетчик времени сжима
+    long int cycle;                 //количество циклов
+//управляем таймером сжима
+    #define timer_jam_on    TIMSK|=(1<<TOIE1)
+    #define timer_jam_off   TIMSK&=~(1<<TOIE1)  
+    
+// состояние входных сигналов
+    enum{key_none=0,key_start,key_stop,key_up,key_dwn,key_bl1,key_bl2,key_bl3,key_bl4,key_auto,key_null, key_jam_save}; 
+    unsigned char PressedKey;       // нажатая клавиша
+    unsigned char ActiveSens;       // активный датчик
+    unsigned char string[11];       // строка для форматироваиня выводимых чисел
+   
+    eeprom unsigned char e_time_jam = 2; //время сжима в энергонезависимой памяти
+    eeprom unsigned char e_cycle;        //количество циклов в энергонезависимой памяти
+    struct
+    {
+        unsigned start  : 1;         //флаг старта
+        unsigned jam    : 1;         //флаг сжима
+        unsigned up     : 1;         //флаг верх    
+    } f;
+    unsigned char c;                 //флаг полного прохождения цикла
+    unsigned char set_cycle;         //флаг цикла
